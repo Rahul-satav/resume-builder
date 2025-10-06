@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resume Builder — Resume.Builder</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <meta name="description" content="ATS-Friendly Resume Builder & Score Checker. Build it. Score it. Get Hired.">
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <!-- html2canvas + jsPDF for PDF export -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <!-- Mammoth for DOCX parsing -->
+  <script src="https://unpkg.com/mammoth/mammoth.browser.min.js"></script>
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="Resume.Builder" onerror="this.style.display='none'">
+      <span>Resume<span class="dot">.</span>Builder</span>
+    </a>
+    <nav>
+      <a href="ats.html">ATS Checker</a>
+      <a href="builder.html">Builder</a>
+      <a href="pricing.html">Pricing</a>
+      <button id="loginBtn" class="btn primary">Login</button>
+      <button id="logoutBtn" class="btn subtle" style="display:none;">Logout</button>
+    </nav>
+  </div>
+</header>
+<main class="container">
+
+<section class="grid2">
+  <div class="card">
+    <h2>Resume Builder</h2>
+    <div class="grid2 tight">
+      <div>
+        <label class="label">Full Name</label>
+        <input id="name" class="input" placeholder="Rahul Satav">
+      </div>
+      <div>
+        <label class="label">Title</label>
+        <input id="title" class="input" placeholder="Senior Full-Stack Developer">
+      </div>
+    </div>
+    <div class="grid3 tight">
+      <div><label class="label">Email</label><input id="email" class="input" placeholder="rahul@example.com"></div>
+      <div><label class="label">Phone</label><input id="phone" class="input" placeholder="+91 98xx xxxxx"></div>
+      <div><label class="label">Location</label><input id="location" class="input" placeholder="Pune, India"></div>
+    </div>
+    <div class="grid2 tight">
+      <div><label class="label">LinkedIn</label><input id="linkedin" class="input" placeholder="https://linkedin.com/in/rahul-satav"></div>
+      <div><label class="label">GitHub</label><input id="github" class="input" placeholder="https://github.com/rahul-satav"></div>
+    </div>
+    <label class="label">Summary</label>
+    <textarea id="summary" class="input" placeholder="2–3 line professional summary"></textarea>
+
+    <label class="label">Experience (one bullet per line)</label>
+    <textarea id="experience" class="input big" placeholder="• Built microservices...
+• Deployed on AWS..."></textarea>
+
+    <label class="label">Projects (one bullet per line)</label>
+    <textarea id="projects" class="input" placeholder="• Resume Builder — React, Tailwind..."></textarea>
+
+    <label class="label">Skills (comma‑separated)</label>
+    <input id="skills" class="input" placeholder="Java, Spring Boot, Angular, AWS">
+
+    <div class="grid2 tight">
+      <div><label class="label">Education</label><input id="education" class="input" placeholder="B.E. – Computer Engineering, PCCOE"></div>
+      <div><label class="label">Certifications</label><input id="certs" class="input" placeholder="AWS, Kubernetes, Cyber Security"></div>
+    </div>
+
+    <div class="actions">
+      <select id="templateSelect" class="input">
+        <option value="classic">Classic Template</option>
+        <option value="modern">Modern Template</option>
+      </select>
+      <button id="saveBtn" class="btn ghost">Save</button>
+      <button id="downloadBtn" class="btn primary">Download PDF</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Live Preview</h3>
+    <div id="preview" class="preview a4">
+      <!-- Resume content injected by JS -->
+    </div>
+  </div>
+</section>
+<script src="js/builder.js"></script>
+
+</main>
+<footer class="footer">
+  <div class="container foot-inner">
+    <div>© 2025 Resume.Builder — Build it. Score it. Get Hired.</div>
+    <div class="foot-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="https://www.linkedin.com/in/rahul-satav/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+<script src="js/firebase.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
