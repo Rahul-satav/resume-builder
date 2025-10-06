@@ -1,78 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ATS Score Checker | Resume.Builder</title>
-  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- ✅ Navbar -->
+  <!-- Navbar -->
   <nav class="navbar">
     <div class="nav-left">
-      <img src="assets/logo.png" alt="Logo" class="logo"/>
+      <img src="assets/logo.png" alt="Logo" class="logo">
       <span class="brand">Resume.<strong>Builder</strong></span>
     </div>
-    <div class="nav-right">
-      <a href="index.html">Home</a>
-      <a href="ats.html" class="active">ATS Checker</a>
-      <a href="builder.html">Builder</a>
-      <a href="pricing.html">Pricing</a>
-      <button id="loginBtn" class="btn small">Login</button>
-    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="ats.html" class="active">ATS Checker</a></li>
+      <li><a href="builder.html">Builder</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+    </ul>
+    <button class="login-btn" id="loginBtn">Login</button>
   </nav>
 
-  <!-- ✅ Main Section -->
-  <main class="container">
+  <!-- ATS Score Checker Section -->
+  <section class="ats-section container">
     <h1>ATS Score Checker</h1>
     <p>Upload your resume (PDF only) and optional job description to get your ATS score & missing keywords.</p>
 
-    <!-- Upload Area -->
-    <div class="card">
-      <label>Upload Resume (PDF only)</label>
-      <input type="file" id="resumeFile" accept=".pdf" />
+    <div class="ats-form">
+      <div class="upload-box">
+        <label for="resumeUpload">Upload Resume (PDF only)</label>
+        <input type="file" id="resumeUpload" accept="application/pdf">
+      </div>
 
-      <label style="margin-top:10px;">Paste Job Description (optional)</label>
-      <textarea id="jdText" rows="5" placeholder="Paste job description here..."></textarea>
-      
-      <button id="checkBtn" class="btn primary" style="margin-top:10px;">Check ATS Score</button>
+      <div class="jd-box">
+        <label for="jobDescription">Paste Job Description (optional)</label>
+        <textarea id="jobDescription" placeholder="Paste job description here..."></textarea>
+      </div>
     </div>
 
-    <!-- ✅ Score Display -->
-    <div id="scoreBox" class="card" style="display:none;">
-      <h3>ATS Score: <span id="atsScore">0</span>%</h3>
-      <p id="atsFeedback"></p>
-    </div>
+    <button class="primary-btn" id="checkAtsBtn">Check ATS Score</button>
+  </section>
 
-    <!-- ✅ Missing Keywords Section -->
-    <div class="card" id="kwBox" style="display:none;">
-      <h4>Missing Keywords</h4>
-      <div id="missingKw" style="display:flex;flex-wrap:wrap;gap:8px;"></div>
-      <button id="addAllKw" class="btn subtle" style="margin-top:10px;">
-        Add all to Skills (copy)
-      </button>
-    </div>
-
-    <!-- ✅ Use Template Button -->
-    <div id="useTemplateBox" class="card" style="display:none;">
-      <button id="useTemplateBtn" class="btn primary">Use Template with Autofill</button>
-    </div>
-  </main>
-
-  <!-- ✅ Footer -->
   <footer>
     <p>© 2025 Resume.Builder — Build it. Score it. Get Hired.</p>
-    <div>
+    <div class="footer-links">
       <a href="privacy.html">Privacy</a> |
       <a href="terms.html">Terms</a> |
       <a href="https://www.linkedin.com/in/rahul-satav/" target="_blank">LinkedIn</a>
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="js/ats.js"></script>
-  <script src="js/firebase.js"></script>
-  <script src="js/app.js"></script>
 </body>
 </html>
