@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ATS Checker — Resume.Builder</title>
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="stylesheet" href="css/styles.css">
+<meta name="description" content="ATS-Friendly Resume Builder & Score Checker. Build it. Score it. Get Hired.">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script src="https://unpkg.com/mammoth/mammoth.browser.min.js"></script>
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="Resume.Builder" onerror="this.style.display='none'">
+      <span>Resume<span class="dot">.</span>Builder</span>
+    </a>
+    <nav>
+      <a href="ats.html">ATS Checker</a>
+      <a href="builder.html">Builder</a>
+      <a href="pricing.html">Pricing</a>
+      <button id="loginBtn" class="btn primary">Login</button>
+      <button id="logoutBtn" class="btn subtle" style="display:none;">Logout</button>
+    </nav>
+  </div>
+</header>
+<main class="container">
+
+<section class="card">
+  <h2>ATS Score Checker</h2>
+  <p class="muted">Paste your resume text or upload DOCX/TXT. Optionally paste a Job Description for keyword match.</p>
+  <div class="grid2">
+    <div>
+      <label class="label">Upload Resume (DOCX/TXT)</label>
+      <input type="file" id="resumeFile" accept=".docx,.txt" />
+      <label class="label">Or paste resume text</label>
+      <textarea id="resumeText" class="input big" placeholder="Paste your resume text here..."></textarea>
+      <label class="label">Job Description (optional)</label>
+      <textarea id="jdText" class="input" placeholder="Paste a job description here..."></textarea>
+      <button id="scoreBtn" class="btn primary">Get Score</button>
+      <button id="useTemplateBtn" class="btn ghost" disabled>Use Template (Auto‑Fill)</button>
+    </div>
+    <div id="scorePanel" class="score card" style="display:none;">
+      <h3>Score: <span id="totalScore">—</span>/100</h3>
+      <ul id="breakdown" class="list"></ul>
+      <h4>Suggestions</h4>
+      <ul id="suggestions" class="list"></ul>
+    </div>
+  </div>
+</section>
+<script src="js/ats.js"></script>
+
+</main>
+<footer class="footer">
+  <div class="container foot-inner">
+    <div>© 2025 Resume.Builder — Build it. Score it. Get Hired.</div>
+    <div class="foot-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="https://www.linkedin.com/in/rahul-satav/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+<script src="js/firebase.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
