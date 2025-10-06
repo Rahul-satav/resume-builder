@@ -1,71 +1,78 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ATS Checker — Resume.Builder</title>
-<link rel="icon" type="image/png" href="assets/logo.png">
-<link rel="stylesheet" href="css/styles.css">
-<meta name="description" content="ATS-Friendly Resume Builder & Score Checker. Build it. Score it. Get Hired.">
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
-<script src="https://unpkg.com/mammoth/mammoth.browser.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ATS Score Checker | Resume.Builder</title>
+  <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-<header class="nav">
-  <div class="container nav-inner">
-    <a class="brand" href="index.html">
-      <img src="assets/logo.png" alt="Resume.Builder" onerror="this.style.display='none'">
-      <span>Resume<span class="dot">.</span>Builder</span>
-    </a>
-    <nav>
-      <a href="ats.html">ATS Checker</a>
+
+  <!-- ✅ Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="assets/logo.png" alt="Logo" class="logo"/>
+      <span class="brand">Resume.<strong>Builder</strong></span>
+    </div>
+    <div class="nav-right">
+      <a href="index.html">Home</a>
+      <a href="ats.html" class="active">ATS Checker</a>
       <a href="builder.html">Builder</a>
       <a href="pricing.html">Pricing</a>
-      <button id="loginBtn" class="btn primary">Login</button>
-      <button id="logoutBtn" class="btn subtle" style="display:none;">Logout</button>
-    </nav>
-  </div>
-</header>
-<main class="container">
+      <button id="loginBtn" class="btn small">Login</button>
+    </div>
+  </nav>
 
-<section class="card">
-  <h2>ATS Score Checker</h2>
-  <p class="muted">Paste your resume text or upload DOCX/TXT. Optionally paste a Job Description for keyword match.</p>
-  <div class="grid2">
-    <div>
-      <label class="label">Upload Resume (DOCX/TXT)</label>
+  <!-- ✅ Main Section -->
+  <main class="container">
+    <h1>ATS Score Checker</h1>
+    <p>Upload your resume (DOCX/TXT) and optional job description to get your ATS score & missing keywords.</p>
+
+    <!-- Upload Area -->
+    <div class="card">
+      <label>Upload Resume (DOCX / TXT)</label>
       <input type="file" id="resumeFile" accept=".docx,.txt" />
-      <label class="label">Or paste resume text</label>
-      <textarea id="resumeText" class="input big" placeholder="Paste your resume text here..."></textarea>
-      <label class="label">Job Description (optional)</label>
-      <textarea id="jdText" class="input" placeholder="Paste a job description here..."></textarea>
-      <button id="scoreBtn" class="btn primary">Get Score</button>
-      <button id="useTemplateBtn" class="btn ghost" disabled>Use Template (Auto‑Fill)</button>
+      
+      <label style="margin-top:10px;">Paste Job Description (optional)</label>
+      <textarea id="jdText" rows="5" placeholder="Paste job description here..."></textarea>
+      
+      <button id="checkBtn" class="btn primary" style="margin-top:10px;">Check ATS Score</button>
     </div>
-    <div id="scorePanel" class="score card" style="display:none;">
-      <h3>Score: <span id="totalScore">—</span>/100</h3>
-      <ul id="breakdown" class="list"></ul>
-      <h4>Suggestions</h4>
-      <ul id="suggestions" class="list"></ul>
-    </div>
-  </div>
-</section>
-<script src="js/ats.js"></script>
 
-</main>
-<footer class="footer">
-  <div class="container foot-inner">
-    <div>© 2025 Resume.Builder — Build it. Score it. Get Hired.</div>
-    <div class="foot-links">
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="https://www.linkedin.com/in/rahul-satav/" target="_blank" rel="noopener">LinkedIn</a>
+    <!-- ✅ Score Display -->
+    <div id="scoreBox" class="card" style="display:none;">
+      <h3>ATS Score: <span id="atsScore">0</span>%</h3>
+      <p id="atsFeedback"></p>
     </div>
-  </div>
-</footer>
-<script src="js/firebase.js"></script>
-<script src="js/app.js"></script>
+
+    <!-- ✅ Missing Keywords Section -->
+    <div class="card" id="kwBox" style="display:none;">
+      <h4>Missing Keywords</h4>
+      <div id="missingKw" style="display:flex;flex-wrap:wrap;gap:8px;"></div>
+      <button id="addAllKw" class="btn subtle" style="margin-top:10px;">
+        Add all to Skills (copy)
+      </button>
+    </div>
+
+    <!-- ✅ Use Template Button -->
+    <div id="useTemplateBox" class="card" style="display:none;">
+      <button id="useTemplateBtn" class="btn primary">Use Template with Autofill</button>
+    </div>
+  </main>
+
+  <!-- ✅ Footer -->
+  <footer>
+    <p>© 2025 Resume.Builder — Build it. Score it. Get Hired.</p>
+    <div>
+      <a href="privacy.html">Privacy</a> |
+      <a href="terms.html">Terms</a> |
+      <a href="https://www.linkedin.com/in/rahul-satav/" target="_blank">LinkedIn</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/ats.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
